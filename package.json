@@ -1,0 +1,16 @@
+{
+  "name": "playzone-bot",
+  "version": "1.0.0",
+  "description": "Play Zone Bot - WhatsApp Bot completo com IA ChatGPT, administração real, limpeza, menu secreto e mensagens personalizadas",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Play Zone",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.3",
+    "whatsapp-web.js": "^1.20.3",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
