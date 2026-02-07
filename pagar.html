@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagamento - Play Zone</title>
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg,#0f172a,#1e293b);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  flex-direction:column;
+  padding:20px;
+}
+.container{
+  background:#111827;
+  padding:20px;
+  border-radius:16px;
+  width:90%;
+  max-width:400px;
+  text-align:center;
+}
+h2{margin-bottom:16px;}
+button{
+  padding:14px 20px;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  font-size:16px;
+  margin-top:16px;
+  cursor:pointer;
+}
+.pix{
+  background:#0f172a;
+  padding:16px;
+  border:2px solid #3b82f6;
+  border-radius:12px;
+  font-size:22px;
+  margin-top:16px;
+  word-break:break-word;
+}
+.pay{background:#22c55e;color:white;}
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Pagamento - Play Zone</h2>
+  <div class="pix">
+    <b>PIX:</b> 81985982655
+  </div>
+  <button class="pay" onclick="alreadyPaid()">Já paguei ✅</button>
+</div>
+
+<script>
+function alreadyPaid(){
+  let cart = JSON.parse(localStorage.getItem('currentCart')) || [];
+  let summary = cart.map(i=>i.name + ' - R$'+i.price).join('%0A');
+  let total = cart.reduce((a,b)=>a+b.price,0);
+  let msg = `Olá! Já paguei o Pix.%0APedidos:%0A${summary}%0ATotal: R$${total}`;
+  window.open('https://wa.me/5581985982655?text='+msg, '_blank');
+}
+</script>
+</body>
+</html>
